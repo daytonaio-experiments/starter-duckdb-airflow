@@ -225,7 +225,7 @@ id,product_name,discounted_price
         "AIRFLOW_HOME": "/workspace/starter-duckdb-airflow"
     },
     "remoteUser": "daytona",
-    "postCreateCommand": "pip install --upgrade pip && pip install apache-airflow pandas duckdb pyarrow"
+    "postCreateCommand": "pip install --upgrade pip && pip install apache-airflow pandas duckdb pyarrow && python3 -m venv airflow_venv"
 }
 ```
 
@@ -245,7 +245,9 @@ id,product_name,discounted_price
 - **Container Environment:**
     - **AIRFLOW_HOME:** Sets the Airflow home directory to the workspace folder.
 - **Remote User:** Sets the user inside the container to `daytona`.
-- **Post Create Command:** Upgrades `pip` and installs required Python packages (`apache-airflow`, `pandas`, `duckdb`, `pyarrow`).
+- **Post Create Command:** 
+    - Upgrades `pip` and installs required Python packages (`apache-airflow`, `pandas`, `duckdb`, `pyarrow`).
+    - Creates a virtual environment named `airflow_venv` for better package isolation.
 
 ## Why Daytona?
 Daytona is a radically simple open source development environment manager.

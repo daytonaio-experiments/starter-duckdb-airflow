@@ -43,5 +43,5 @@
         "AIRFLOW_HOME": "/workspace/starter-duckdb-airflow"
     },
     "remoteUser": "daytona",
-    "postCreateCommand": "pip install --upgrade pip && pip install apache-airflow pandas duckdb pyarrow"
+    "postCreateCommand": "pip install --upgrade pip && pip install apache-airflow pandas duckdb pyarrow && python3 -m venv airflow_venv"
 }
