@@ -1,0 +1,47 @@
+{
+    "name": "ETL Pipeline with Airflow and DuckDB",
+    "image": "ubuntu:22.04",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2.5.2": {
+            "username": "daytona",
+            "userUid": 1000,
+            "userGid": 1000,
+            "configureZshAsDefaultShell": true
+        },
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/python:1.6.5": {
+            "version": "3.10",
+            "installPip": true
+        }
+    },
+    "overrideFeatureInstallOrder": [
+        "ghcr.io/devcontainers/features/common-utils",
+        "ghcr.io/devcontainers/features/git",
+        "ghcr.io/devcontainers/features/python"
+    ],
+    "workspaceFolder": "/workspace/starter-duckdb-airflow",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter"
+            ]
+        }
+    },
+    "portsAttributes": {
+        "8080": {
+            "label": "Airflow Web UI",
+            "onAutoForward": "notify"
+        },
+        "8793": {
+            "label": "Airflow Scheduler",
+            "onAutoForward": "notify"
+        }
+    },
+    "containerEnv": {
+        "AIRFLOW_HOME": "/workspace/starter-duckdb-airflow"
+    },
+    "remoteUser": "daytona",
+    "postCreateCommand": "pip install --upgrade pip && pip install apache-airflow pandas duckdb pyarrow"
+}
