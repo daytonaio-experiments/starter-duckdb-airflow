@@ -1,16 +1,14 @@
-# Automate Your Data Pipeline: A Step-by-Step Guide Using Airflow and DuckDB
+# Set Up and Automate Your Data Pipeline in No Time Using Airflow and DuckDB
 
-Dealing with data can be a real headache. Extracting it from one place, transforming it in another, and then loading it into a final format can quickly turn into a long, tedious process. Whether you’re working with product data, sales figures, or customer records, handling all that manually takes time, and let’s be honest it’s not the most exciting part of your day.
+Dealing with data pipelines can be a real challenge. Manually extracting, transforming, and loading data often feels like piecing together a puzzle, one frustrating step at a time. It’s time-consuming, error-prone, and not exactly the most thrilling task in your day. But what if there was a better way?
 
-But what if you could automate it all? What if setting up an efficient [ETL pipeline](https://airflow.apache.org/use-cases/etl_analytics/) was as simple as following a few steps? That’s exactly what we’re going to do in this guide. You’ll learn how to create an ETL pipeline using **Apache Airflow** and **DuckDB** to automate the process of extracting data from a CSV, applying a simple transformation (like applying a 10% discount to product prices), and then loading it into a new CSV file.
+This guide will show you how to automate your data pipelines using tools like Apache Airflow, DuckDB, and Daytona. Instead of wrestling with configurations and scripts, you’ll spend your time solving actual business problems. You’ll learn to extract data, apply transformations (like giving all your product prices a discount), and output clean, ready-to-use data without lifting a finger after setup.
 
-By the end of this guide, you’ll understand how each part of the pipeline works, and you’ll see just how easy it is to set up and run it with the help of Daytona. [Daytona](https://www.daytona.io/) will simplify the environment setup, taking care of the messy configuration, so you can focus on what really matters: building and running your ETL pipeline without all the hassle.
-
-Ready to make data handling effortless? Let’s dive in!
+By the end, you’ll have an automated pipeline and a clear understanding of how these tools work together. Whether it’s product data, sales analysis, or customer metrics, you’ll save time, reduce errors, and make your work much easier. Let’s dive in!
 
 ## Technologies Powering the ETL Pipeline
 
-This project brings together a few key technologies that make building and running the ETL pipeline easy and efficient. Here’s what powers the pipeline:
+Let’s think of your [ETL pipeline](https://airflow.apache.org/use-cases/etl_analytics/) as a well-oiled team working together to get the job done quickly and smoothly. Here’s the dream team making it all happen:
 
 - **[Apache Airflow](https://airflow.apache.org/)** – Manages and automates the entire pipeline process, making sure each task happens in the right order.
 
@@ -18,25 +16,15 @@ This project brings together a few key technologies that make building and runni
 
 - **[Daytona](https://www.daytona.io/) and [Dev Containers](https://containers.dev/)** – Simplifies setup by providing a pre-configured development environment, saving you time on configuration.
 
-## How the ETL Process Runs Automatically
+## Turning Chaos into Automation: How the ETL Process Runs Like Clockwork
 
-Picture this: your data pipeline runs smoothly without you lifting a finger. No more manually opening files, running scripts, or tracking every step. With Airflow and DuckDB, you can automate the entire process—from extracting data to transforming it and finally loading it back into a new file.
+Imagine this: your data pipeline runs like clockwork, effortlessly handling everything while you sit back and focus on more important things. No more clicking through files, running scripts, or stressing over every little step. With Airflow and DuckDB, your data goes from raw to ready in no time, completely on autopilot.
 
-Here’s how it works:
+Here’s the magic in three simple steps:
 
 ### 1. Extract 
 
 The pipeline starts by reading data from a CSV file. In this case, it’s a file that contains product information, such as the product name, ID, and price.
-
-**Example:** Input (`products.csv`):
-
-| id | product_name | price |
-|----|--------------|-------|
-| 1  | Product A    | 100   |
-| 2  | Product B    | 200   |
-| 3  | Product C    | 150   |
-| 4  | Product D    | 50    |
-| 5  | Product E    | 80    |
 
 ### 2. Transform
 
@@ -46,46 +34,37 @@ After extracting the data, it’s sent to **DuckDB**, which performs the transfo
 
 Once the transformation is complete, the new data with the discounted prices is written back to a new CSV file. This file can then be used for analysis or reporting.
 
-**Example:** Output (`discounted_products.csv`):
-
-| id | product_name | discounted_price |
-|----|--------------|------------------|
-| 1  | Product A    | 90.0             |
-| 2  | Product B    | 180.0            |
-| 3  | Product C    | 135.0            |
-| 4  | Product D    | 45.0             |
-| 5  | Product E    | 72.0             |
-
-
 And the best part? **Airflow** automates the timing and sequence of every step, so you don’t need to worry about running tasks manually. Just set it up once, and let Airflow handle the rest.
 
 ## What Makes This ETL Pipeline Stand Out
 
-This ETL pipeline comes with a set of features that make it easy to use and efficient. Here’s what you can expect:
+This ETL pipeline is built to make your data processing easier, faster, and more reliable. Here’s what sets it apart:
 
-**1. Task Automation with Apache Airflow:** Apache Airflow schedules and automates the tasks in your pipeline, ensuring they run in the right order without manual intervention.
+**1. Automated Task Management with Apache Airflow:** Apache Airflow takes care of scheduling and running each step in the pipeline. No need for manual work—Airflow ensures tasks run in the right order, every time.
 
-**2. Fast Data Transformation with DuckDB:** DuckDB is used for fast, in-memory data transformations, applying changes like discounts efficiently, even with large datasets.
+**2. Quick and Efficient Transformations with DuckDB:** DuckDB handles data transformations quickly and easily. Whether it’s applying a discount or making complex changes, it works efficiently, even with large datasets.
 
-**3. Pre-loaded Sample Data:** The project includes sample CSV data, so you can test the pipeline right away and see how it processes real-world information.
+**3. Ready-to-Use Sample Data:** The project comes with sample CSV files so you can jump right in. You can see how the pipeline works with real-world data without spending time creating your own test files.
 
-**4. Full Pipeline Automation:** From extraction to transformation and loading, the pipeline runs end-to-end automatically, allowing you to focus on other tasks while it works.
+**4. End-to-End Automation:** From reading raw data to applying transformations and saving the results, the entire pipeline runs automatically. You set it up once and let it handle the heavy lifting while you focus on other tasks.
 
-**5. Simplified Setup with Daytona:** Daytona automates the setup process, providing a ready-to-use development environment so you can start coding without worrying about configurations.
+**5. Hassle-Free Setup with Daytona:** Daytona automates the setup process, providing a ready-to-use development environment so you can start coding without worrying about configurations.
 
-## Getting the ETL Pipeline Running in No Time
+## Getting the ETL Pipeline Up and Running
 
-We’ve already set up a pre-configured environment with an ETL pipeline, so you can get started quickly. [Daytona](https://www.daytona.io/) will handle the setup, letting you skip complex configurations and dive right into running your pipeline.
+We’ve set up everything for you, so you can skip the hassle and get started right away. With [Daytona](https://www.daytona.io/) handling the setup, you don’t need to worry about complicated configurations. Just jump in and start running your ETL pipeline with ease.
 
-> The entire codebase for this ETL pipeline, including all configurations and scripts, is available in our GitHub repository: https://github.com/daytonaio-experiments/starter-duckdb-airflow
+> The entire codebase for this ETL pipeline, including all configurations and scripts, is available on GitHub: https://github.com/daytonaio-experiments/starter-duckdb-airflow
 
-### Prerequisites
+![airflow duckdb working hld](/docs/assets/airflow-duckdb-hld.png)
 
-Before we start, make sure you have the following installed and ready to go:
+### What You Need Before Starting
 
-- **Daytona:** Ensure Daytona is installed on your machine to handle the development environment setup.
+Make sure you have the following ready to go:
 
-- **Docker:** Docker should be installed and running, as it’s essential for the containerized environment.
+- **Daytona:** [Install Daytona](https://www.daytona.io/docs/installation/installation/) to handle the development environment setup.
+
+- **Docker:** Docker should be installed and running to support the containerized environment.
 
 - **Daytona Server:** Start the Daytona server by running the command `daytona serve` in your terminal.
 
@@ -181,7 +160,7 @@ cat output/discounted_products.csv
 
 This will display the transformed data, confirming that the pipeline has successfully applied the 10% discount and generated the new CSV.
 
-## Dev Container Configuration: Simplifying the Development Setup
+## A Plug-and-Play Setup for Your ETL Pipeline
 
 A key feature of this project is the use of a Dev Container configuration, which simplifies the development environment and ensures consistency across machines. Here’s a quick overview:
 
@@ -231,9 +210,11 @@ A key feature of this project is the use of a Dev Container configuration, which
         "AIRFLOW_HOME": "/workspace/starter-duckdb-airflow"
     },
     "remoteUser": "daytona",
-    "postCreateCommand": "pip install --upgrade pip && pip install apache-airflow pandas duckdb pyarrow"
+    "postCreateCommand": "pip install --upgrade pip && pip install apache-airflow pandas duckdb pyarrow && python3 -m venv airflow_venv"
 }
 ```
+
+Highlights of this Dev Container Configuration:
 
 - **Base Image:** We use **Ubuntu 22.04** as the base image, providing a stable and familiar environment for running our ETL pipeline with Airflow and DuckDB.
 
@@ -254,11 +235,13 @@ A key feature of this project is the use of a Dev Container configuration, which
 
 - **Container Environment:** The **AIRFLOW_HOME** environment variable is set to the workspace directory, ensuring that Airflow runs from the correct location.
 
-- **Post-Create Commands:** After the container is created, it automatically upgrades pip and installs necessary Python libraries: **Apache Airflow**, **Pandas**, **DuckDB**, and **PyArrow**.
+- **Post Create Command:** 
+    - Upgrades `pip` and installs required Python packages (`apache-airflow`, `pandas`, `duckdb`, `pyarrow`).
+    - Creates a virtual environment named `airflow_venv` for better package isolation.
 
-With this setup, you don’t need to manually install dependencies or worry about environment differences. The Dev Container handles everything, providing a seamless, consistent experience whether you're working alone or with a team.
+With this setup, you can skip the hassle of installing dependencies or dealing with environment issues. The Dev Container takes care of everything, ensuring a smooth and consistent experience, whether you’re working on your own or collaborating with a team.
 
-## Exploring the Code: How the ETL Pipeline Comes Together
+## Breaking Down the Code: How the ETL Pipeline Works
 
 Let's take a closer look at the core parts of the code that make up this ETL pipeline. We’ll break down the key files and explore how everything works together, from defining tasks in Airflow to integrating DuckDB for data transformation.
 
@@ -358,14 +341,14 @@ load_task = PythonOperator(
 
 Each operator is tied to one of the ETL tasks, specifying the function to call when the task is executed. The `provide_context=True` ensures that the tasks can pass data between each other using [Airflow’s XCom feature](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/xcoms.html).
 
-## Conclusion and Key Takeaways
+## Wrapping Up: What You’ve Achieved
 
 Great job! You’ve successfully set up an ETL pipeline using Apache Airflow, DuckDB, and Daytona, and automated data transformations like a pro. Here’s a quick recap of what you’ve accomplished:
 
 - **[Airflow](https://airflow.apache.org/)** - Orchestrated the entire ETL process, automating task scheduling and execution with ease.
 - **[DuckDB](https://duckdb.org/)** - Provided a fast, in-memory SQL transformation layer to handle your data efficiently.
-- **[Daytona](https://www.daytona.io/)** - Simplified environment setup, allowing you to get everything up and running without dealing with dependency headaches.
+- **[Daytona](https://www.daytona.io/)** - Made the setup process a breeze, so you could skip the headache of configuring dependencies and focus on what matters: building your pipeline.
 
-With Daytona’s help, you were able to skip the typical setup struggles and focus on building your pipeline. The combination of these tools lets you automate and simplify your ETL tasks, transforming your data faster and more efficiently.
+Thanks to Daytona, you avoided the usual setup roadblocks and were able to dive straight into working with your data. This powerful combination of tools makes automating your ETL tasks easier, faster, and more reliable.
 
 As you move forward, feel free to explore and expand on this pipeline to suit your needs. And remember, if you hit any snags along the way, the [Daytona team](https://github.com/daytonaio/daytona) and their [community](https://go.daytona.io/slack) are always ready to lend a hand. Now, go ahead and experiment, optimize, and make your ETL pipeline even better. Happy coding!
